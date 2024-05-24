@@ -2,7 +2,7 @@ Note: Instructions for running the `run.sh` file.
 
 Step 1. Open your terminal
 
-STep 2. Navigate to the directory containing the `run.sh` file
+Step 2. Navigate to the directory containing the `run.sh` file
    
     cd LoweringToLLVMIR
 
