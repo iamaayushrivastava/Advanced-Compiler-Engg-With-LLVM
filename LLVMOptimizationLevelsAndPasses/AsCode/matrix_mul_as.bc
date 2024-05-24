@@ -1,0 +1,459 @@
+	.text
+	.file	"matrix_mul.cpp"
+	.section	.text.startup,"ax",@progbits
+	.p2align	4, 0x90                         # -- Begin function __cxx_global_var_init
+	.type	__cxx_global_var_init,@function
+__cxx_global_var_init:                  # @__cxx_global_var_init
+	.cfi_startproc
+# %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	leaq	_ZStL8__ioinit(%rip), %rdi
+	callq	_ZNSt8ios_base4InitC1Ev@PLT
+	movq	_ZNSt8ios_base4InitD1Ev@GOTPCREL(%rip), %rdi
+	leaq	_ZStL8__ioinit(%rip), %rsi
+	leaq	__dso_handle(%rip), %rdx
+	callq	__cxa_atexit@PLT
+	popq	%rbp
+	.cfi_def_cfa %rsp, 8
+	retq
+.Lfunc_end0:
+	.size	__cxx_global_var_init, .Lfunc_end0-__cxx_global_var_init
+	.cfi_endproc
+                                        # -- End function
+	.text
+	.globl	main                            # -- Begin function main
+	.p2align	4, 0x90
+	.type	main,@function
+main:                                   # @main
+	.cfi_startproc
+# %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	subq	$1248, %rsp                     # imm = 0x4E0
+	movl	$0, -4(%rbp)
+	movq	_ZSt4cout@GOTPCREL(%rip), %rdi
+	leaq	.L.str(%rip), %rsi
+	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@PLT
+	movq	_ZSt3cin@GOTPCREL(%rip), %rdi
+	leaq	-1220(%rbp), %rsi
+	callq	_ZNSirsERi@PLT
+	movq	%rax, %rdi
+	leaq	-1224(%rbp), %rsi
+	callq	_ZNSirsERi@PLT
+	movq	_ZSt4cout@GOTPCREL(%rip), %rdi
+	leaq	.L.str.1(%rip), %rsi
+	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@PLT
+	movq	_ZSt3cin@GOTPCREL(%rip), %rdi
+	leaq	-1228(%rbp), %rsi
+	callq	_ZNSirsERi@PLT
+	movq	%rax, %rdi
+	leaq	-1232(%rbp), %rsi
+	callq	_ZNSirsERi@PLT
+.LBB1_1:                                # =>This Inner Loop Header: Depth=1
+	movl	-1224(%rbp), %eax
+	cmpl	-1228(%rbp), %eax
+	je	.LBB1_3
+# %bb.2:                                #   in Loop: Header=BB1_1 Depth=1
+	movq	_ZSt4cout@GOTPCREL(%rip), %rdi
+	leaq	.L.str.2(%rip), %rsi
+	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@PLT
+	movq	_ZSt4cout@GOTPCREL(%rip), %rdi
+	leaq	.L.str(%rip), %rsi
+	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@PLT
+	movq	_ZSt3cin@GOTPCREL(%rip), %rdi
+	leaq	-1220(%rbp), %rsi
+	callq	_ZNSirsERi@PLT
+	movq	%rax, %rdi
+	leaq	-1224(%rbp), %rsi
+	callq	_ZNSirsERi@PLT
+	movq	_ZSt4cout@GOTPCREL(%rip), %rdi
+	leaq	.L.str.1(%rip), %rsi
+	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@PLT
+	movq	_ZSt3cin@GOTPCREL(%rip), %rdi
+	leaq	-1228(%rbp), %rsi
+	callq	_ZNSirsERi@PLT
+	movq	%rax, %rdi
+	leaq	-1232(%rbp), %rsi
+	callq	_ZNSirsERi@PLT
+	jmp	.LBB1_1
+.LBB1_3:
+	movq	_ZSt4cout@GOTPCREL(%rip), %rdi
+	movq	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@GOTPCREL(%rip), %rsi
+	callq	_ZNSolsEPFRSoS_E@PLT
+	movq	%rax, %rdi
+	leaq	.L.str.3(%rip), %rsi
+	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@PLT
+	movq	%rax, %rdi
+	movq	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@GOTPCREL(%rip), %rsi
+	callq	_ZNSolsEPFRSoS_E@PLT
+	movl	$0, -1236(%rbp)
+.LBB1_4:                                # =>This Loop Header: Depth=1
+                                        #     Child Loop BB1_6 Depth 2
+	movl	-1236(%rbp), %eax
+	cmpl	-1220(%rbp), %eax
+	jge	.LBB1_11
+# %bb.5:                                #   in Loop: Header=BB1_4 Depth=1
+	movl	$0, -1240(%rbp)
+.LBB1_6:                                #   Parent Loop BB1_4 Depth=1
+                                        # =>  This Inner Loop Header: Depth=2
+	movl	-1240(%rbp), %eax
+	cmpl	-1224(%rbp), %eax
+	jge	.LBB1_9
+# %bb.7:                                #   in Loop: Header=BB1_6 Depth=2
+	movq	_ZSt4cout@GOTPCREL(%rip), %rdi
+	leaq	.L.str.4(%rip), %rsi
+	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@PLT
+	movq	%rax, %rdi
+	movl	-1236(%rbp), %esi
+	addl	$1, %esi
+	callq	_ZNSolsEi@PLT
+	movq	%rax, %rdi
+	movl	-1240(%rbp), %esi
+	addl	$1, %esi
+	callq	_ZNSolsEi@PLT
+	movq	%rax, %rdi
+	leaq	.L.str.5(%rip), %rsi
+	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@PLT
+	movslq	-1236(%rbp), %rax
+	leaq	-416(%rbp), %rsi
+	imulq	$40, %rax, %rax
+	addq	%rax, %rsi
+	movslq	-1240(%rbp), %rax
+	shlq	$2, %rax
+	addq	%rax, %rsi
+	movq	_ZSt3cin@GOTPCREL(%rip), %rdi
+	callq	_ZNSirsERi@PLT
+# %bb.8:                                #   in Loop: Header=BB1_6 Depth=2
+	movl	-1240(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -1240(%rbp)
+	jmp	.LBB1_6
+.LBB1_9:                                #   in Loop: Header=BB1_4 Depth=1
+	jmp	.LBB1_10
+.LBB1_10:                               #   in Loop: Header=BB1_4 Depth=1
+	movl	-1236(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -1236(%rbp)
+	jmp	.LBB1_4
+.LBB1_11:
+	movq	_ZSt4cout@GOTPCREL(%rip), %rdi
+	movq	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@GOTPCREL(%rip), %rsi
+	callq	_ZNSolsEPFRSoS_E@PLT
+	movq	%rax, %rdi
+	leaq	.L.str.6(%rip), %rsi
+	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@PLT
+	movq	%rax, %rdi
+	movq	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@GOTPCREL(%rip), %rsi
+	callq	_ZNSolsEPFRSoS_E@PLT
+	movl	$0, -1236(%rbp)
+.LBB1_12:                               # =>This Loop Header: Depth=1
+                                        #     Child Loop BB1_14 Depth 2
+	movl	-1236(%rbp), %eax
+	cmpl	-1228(%rbp), %eax
+	jge	.LBB1_19
+# %bb.13:                               #   in Loop: Header=BB1_12 Depth=1
+	movl	$0, -1240(%rbp)
+.LBB1_14:                               #   Parent Loop BB1_12 Depth=1
+                                        # =>  This Inner Loop Header: Depth=2
+	movl	-1240(%rbp), %eax
+	cmpl	-1232(%rbp), %eax
+	jge	.LBB1_17
+# %bb.15:                               #   in Loop: Header=BB1_14 Depth=2
+	movq	_ZSt4cout@GOTPCREL(%rip), %rdi
+	leaq	.L.str.7(%rip), %rsi
+	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@PLT
+	movq	%rax, %rdi
+	movl	-1236(%rbp), %esi
+	addl	$1, %esi
+	callq	_ZNSolsEi@PLT
+	movq	%rax, %rdi
+	movl	-1240(%rbp), %esi
+	addl	$1, %esi
+	callq	_ZNSolsEi@PLT
+	movq	%rax, %rdi
+	leaq	.L.str.5(%rip), %rsi
+	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@PLT
+	movslq	-1236(%rbp), %rax
+	leaq	-816(%rbp), %rsi
+	imulq	$40, %rax, %rax
+	addq	%rax, %rsi
+	movslq	-1240(%rbp), %rax
+	shlq	$2, %rax
+	addq	%rax, %rsi
+	movq	_ZSt3cin@GOTPCREL(%rip), %rdi
+	callq	_ZNSirsERi@PLT
+# %bb.16:                               #   in Loop: Header=BB1_14 Depth=2
+	movl	-1240(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -1240(%rbp)
+	jmp	.LBB1_14
+.LBB1_17:                               #   in Loop: Header=BB1_12 Depth=1
+	jmp	.LBB1_18
+.LBB1_18:                               #   in Loop: Header=BB1_12 Depth=1
+	movl	-1236(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -1236(%rbp)
+	jmp	.LBB1_12
+.LBB1_19:
+	movl	$0, -1236(%rbp)
+.LBB1_20:                               # =>This Loop Header: Depth=1
+                                        #     Child Loop BB1_22 Depth 2
+	movl	-1236(%rbp), %eax
+	cmpl	-1220(%rbp), %eax
+	jge	.LBB1_27
+# %bb.21:                               #   in Loop: Header=BB1_20 Depth=1
+	movl	$0, -1240(%rbp)
+.LBB1_22:                               #   Parent Loop BB1_20 Depth=1
+                                        # =>  This Inner Loop Header: Depth=2
+	movl	-1240(%rbp), %eax
+	cmpl	-1232(%rbp), %eax
+	jge	.LBB1_25
+# %bb.23:                               #   in Loop: Header=BB1_22 Depth=2
+	movslq	-1236(%rbp), %rcx
+	leaq	-1216(%rbp), %rax
+	imulq	$40, %rcx, %rcx
+	addq	%rcx, %rax
+	movslq	-1240(%rbp), %rcx
+	movl	$0, (%rax,%rcx,4)
+# %bb.24:                               #   in Loop: Header=BB1_22 Depth=2
+	movl	-1240(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -1240(%rbp)
+	jmp	.LBB1_22
+.LBB1_25:                               #   in Loop: Header=BB1_20 Depth=1
+	jmp	.LBB1_26
+.LBB1_26:                               #   in Loop: Header=BB1_20 Depth=1
+	movl	-1236(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -1236(%rbp)
+	jmp	.LBB1_20
+.LBB1_27:
+	movl	$0, -1236(%rbp)
+.LBB1_28:                               # =>This Loop Header: Depth=1
+                                        #     Child Loop BB1_30 Depth 2
+                                        #       Child Loop BB1_32 Depth 3
+	movl	-1236(%rbp), %eax
+	cmpl	-1220(%rbp), %eax
+	jge	.LBB1_39
+# %bb.29:                               #   in Loop: Header=BB1_28 Depth=1
+	movl	$0, -1240(%rbp)
+.LBB1_30:                               #   Parent Loop BB1_28 Depth=1
+                                        # =>  This Loop Header: Depth=2
+                                        #       Child Loop BB1_32 Depth 3
+	movl	-1240(%rbp), %eax
+	cmpl	-1232(%rbp), %eax
+	jge	.LBB1_37
+# %bb.31:                               #   in Loop: Header=BB1_30 Depth=2
+	movl	$0, -1244(%rbp)
+.LBB1_32:                               #   Parent Loop BB1_28 Depth=1
+                                        #     Parent Loop BB1_30 Depth=2
+                                        # =>    This Inner Loop Header: Depth=3
+	movl	-1244(%rbp), %eax
+	cmpl	-1224(%rbp), %eax
+	jge	.LBB1_35
+# %bb.33:                               #   in Loop: Header=BB1_32 Depth=3
+	movslq	-1236(%rbp), %rcx
+	leaq	-416(%rbp), %rax
+	imulq	$40, %rcx, %rcx
+	addq	%rcx, %rax
+	movslq	-1244(%rbp), %rcx
+	movl	(%rax,%rcx,4), %edx
+	movslq	-1244(%rbp), %rcx
+	leaq	-816(%rbp), %rax
+	imulq	$40, %rcx, %rcx
+	addq	%rcx, %rax
+	movslq	-1240(%rbp), %rcx
+	imull	(%rax,%rcx,4), %edx
+	movslq	-1236(%rbp), %rcx
+	leaq	-1216(%rbp), %rax
+	imulq	$40, %rcx, %rcx
+	addq	%rcx, %rax
+	movslq	-1240(%rbp), %rcx
+	addl	(%rax,%rcx,4), %edx
+	movl	%edx, (%rax,%rcx,4)
+# %bb.34:                               #   in Loop: Header=BB1_32 Depth=3
+	movl	-1244(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -1244(%rbp)
+	jmp	.LBB1_32
+.LBB1_35:                               #   in Loop: Header=BB1_30 Depth=2
+	jmp	.LBB1_36
+.LBB1_36:                               #   in Loop: Header=BB1_30 Depth=2
+	movl	-1240(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -1240(%rbp)
+	jmp	.LBB1_30
+.LBB1_37:                               #   in Loop: Header=BB1_28 Depth=1
+	jmp	.LBB1_38
+.LBB1_38:                               #   in Loop: Header=BB1_28 Depth=1
+	movl	-1236(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -1236(%rbp)
+	jmp	.LBB1_28
+.LBB1_39:
+	movq	_ZSt4cout@GOTPCREL(%rip), %rdi
+	movq	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@GOTPCREL(%rip), %rsi
+	callq	_ZNSolsEPFRSoS_E@PLT
+	movq	%rax, %rdi
+	leaq	.L.str.8(%rip), %rsi
+	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@PLT
+	movq	%rax, %rdi
+	movq	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@GOTPCREL(%rip), %rsi
+	callq	_ZNSolsEPFRSoS_E@PLT
+	movl	$0, -1236(%rbp)
+.LBB1_40:                               # =>This Loop Header: Depth=1
+                                        #     Child Loop BB1_42 Depth 2
+	movl	-1236(%rbp), %eax
+	cmpl	-1220(%rbp), %eax
+	jge	.LBB1_49
+# %bb.41:                               #   in Loop: Header=BB1_40 Depth=1
+	movl	$0, -1240(%rbp)
+.LBB1_42:                               #   Parent Loop BB1_40 Depth=1
+                                        # =>  This Inner Loop Header: Depth=2
+	movl	-1240(%rbp), %eax
+	cmpl	-1232(%rbp), %eax
+	jge	.LBB1_47
+# %bb.43:                               #   in Loop: Header=BB1_42 Depth=2
+	movq	_ZSt4cout@GOTPCREL(%rip), %rdi
+	leaq	.L.str.9(%rip), %rsi
+	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@PLT
+	movq	%rax, %rdi
+	movslq	-1236(%rbp), %rcx
+	leaq	-1216(%rbp), %rax
+	imulq	$40, %rcx, %rcx
+	addq	%rcx, %rax
+	movslq	-1240(%rbp), %rcx
+	movl	(%rax,%rcx,4), %esi
+	callq	_ZNSolsEi@PLT
+	movl	-1240(%rbp), %eax
+	movl	-1232(%rbp), %ecx
+	subl	$1, %ecx
+	cmpl	%ecx, %eax
+	jne	.LBB1_45
+# %bb.44:                               #   in Loop: Header=BB1_42 Depth=2
+	movq	_ZSt4cout@GOTPCREL(%rip), %rdi
+	movq	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@GOTPCREL(%rip), %rsi
+	callq	_ZNSolsEPFRSoS_E@PLT
+.LBB1_45:                               #   in Loop: Header=BB1_42 Depth=2
+	jmp	.LBB1_46
+.LBB1_46:                               #   in Loop: Header=BB1_42 Depth=2
+	movl	-1240(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -1240(%rbp)
+	jmp	.LBB1_42
+.LBB1_47:                               #   in Loop: Header=BB1_40 Depth=1
+	jmp	.LBB1_48
+.LBB1_48:                               #   in Loop: Header=BB1_40 Depth=1
+	movl	-1236(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -1236(%rbp)
+	jmp	.LBB1_40
+.LBB1_49:
+	xorl	%eax, %eax
+	addq	$1248, %rsp                     # imm = 0x4E0
+	popq	%rbp
+	.cfi_def_cfa %rsp, 8
+	retq
+.Lfunc_end1:
+	.size	main, .Lfunc_end1-main
+	.cfi_endproc
+                                        # -- End function
+	.section	.text.startup,"ax",@progbits
+	.p2align	4, 0x90                         # -- Begin function _GLOBAL__sub_I_matrix_mul.cpp
+	.type	_GLOBAL__sub_I_matrix_mul.cpp,@function
+_GLOBAL__sub_I_matrix_mul.cpp:          # @_GLOBAL__sub_I_matrix_mul.cpp
+	.cfi_startproc
+# %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	callq	__cxx_global_var_init
+	popq	%rbp
+	.cfi_def_cfa %rsp, 8
+	retq
+.Lfunc_end2:
+	.size	_GLOBAL__sub_I_matrix_mul.cpp, .Lfunc_end2-_GLOBAL__sub_I_matrix_mul.cpp
+	.cfi_endproc
+                                        # -- End function
+	.type	_ZStL8__ioinit,@object          # @_ZStL8__ioinit
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.hidden	__dso_handle
+	.type	.L.str,@object                  # @.str
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.L.str:
+	.asciz	"Enter rows and columns for first matrix: "
+	.size	.L.str, 42
+
+	.type	.L.str.1,@object                # @.str.1
+.L.str.1:
+	.asciz	"Enter rows and columns for second matrix: "
+	.size	.L.str.1, 43
+
+	.type	.L.str.2,@object                # @.str.2
+.L.str.2:
+	.asciz	"Error! column of first matrix not equal to row of second."
+	.size	.L.str.2, 58
+
+	.type	.L.str.3,@object                # @.str.3
+.L.str.3:
+	.asciz	"Enter elements of matrix 1:"
+	.size	.L.str.3, 28
+
+	.type	.L.str.4,@object                # @.str.4
+.L.str.4:
+	.asciz	"Enter element a"
+	.size	.L.str.4, 16
+
+	.type	.L.str.5,@object                # @.str.5
+.L.str.5:
+	.asciz	" : "
+	.size	.L.str.5, 4
+
+	.type	.L.str.6,@object                # @.str.6
+.L.str.6:
+	.asciz	"Enter elements of matrix 2:"
+	.size	.L.str.6, 28
+
+	.type	.L.str.7,@object                # @.str.7
+.L.str.7:
+	.asciz	"Enter element b"
+	.size	.L.str.7, 16
+
+	.type	.L.str.8,@object                # @.str.8
+.L.str.8:
+	.asciz	"Output Matrix: "
+	.size	.L.str.8, 16
+
+	.type	.L.str.9,@object                # @.str.9
+.L.str.9:
+	.asciz	" "
+	.size	.L.str.9, 2
+
+	.section	.init_array,"aw",@init_array
+	.p2align	3, 0x90
+	.quad	_GLOBAL__sub_I_matrix_mul.cpp
+	.ident	"clang version 17.0.6 (https://github.com/llvm/llvm-project.git 6009708b4367171ccdbf4b5905cb6a803753fe18)"
+	.section	".note.GNU-stack","",@progbits
+	.addrsig
+	.addrsig_sym __cxx_global_var_init
+	.addrsig_sym __cxa_atexit
+	.addrsig_sym _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	.addrsig_sym _ZNSirsERi
+	.addrsig_sym _ZNSolsEPFRSoS_E
+	.addrsig_sym _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+	.addrsig_sym _ZNSolsEi
+	.addrsig_sym _GLOBAL__sub_I_matrix_mul.cpp
+	.addrsig_sym _ZStL8__ioinit
+	.addrsig_sym __dso_handle
+	.addrsig_sym _ZSt4cout
+	.addrsig_sym _ZSt3cin

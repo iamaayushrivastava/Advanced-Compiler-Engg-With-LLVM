@@ -1,0 +1,335 @@
+	.text
+	.file	"floyd_warshall.cpp"
+	.section	.text.startup,"ax",@progbits
+	.p2align	4, 0x90                         # -- Begin function __cxx_global_var_init
+	.type	__cxx_global_var_init,@function
+__cxx_global_var_init:                  # @__cxx_global_var_init
+	.cfi_startproc
+# %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	leaq	_ZStL8__ioinit(%rip), %rdi
+	callq	_ZNSt8ios_base4InitC1Ev@PLT
+	movq	_ZNSt8ios_base4InitD1Ev@GOTPCREL(%rip), %rdi
+	leaq	_ZStL8__ioinit(%rip), %rsi
+	leaq	__dso_handle(%rip), %rdx
+	callq	__cxa_atexit@PLT
+	popq	%rbp
+	.cfi_def_cfa %rsp, 8
+	retq
+.Lfunc_end0:
+	.size	__cxx_global_var_init, .Lfunc_end0-__cxx_global_var_init
+	.cfi_endproc
+                                        # -- End function
+	.text
+	.globl	_Z13floydWarshallPA4_i          # -- Begin function _Z13floydWarshallPA4_i
+	.p2align	4, 0x90
+	.type	_Z13floydWarshallPA4_i,@function
+_Z13floydWarshallPA4_i:                 # @_Z13floydWarshallPA4_i
+	.cfi_startproc
+# %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	subq	$32, %rsp
+	movq	%rdi, -8(%rbp)
+	movl	$0, -20(%rbp)
+.LBB1_1:                                # =>This Loop Header: Depth=1
+                                        #     Child Loop BB1_3 Depth 2
+                                        #       Child Loop BB1_5 Depth 3
+	cmpl	$4, -20(%rbp)
+	jge	.LBB1_16
+# %bb.2:                                #   in Loop: Header=BB1_1 Depth=1
+	movl	$0, -12(%rbp)
+.LBB1_3:                                #   Parent Loop BB1_1 Depth=1
+                                        # =>  This Loop Header: Depth=2
+                                        #       Child Loop BB1_5 Depth 3
+	cmpl	$4, -12(%rbp)
+	jge	.LBB1_14
+# %bb.4:                                #   in Loop: Header=BB1_3 Depth=2
+	movl	$0, -16(%rbp)
+.LBB1_5:                                #   Parent Loop BB1_1 Depth=1
+                                        #     Parent Loop BB1_3 Depth=2
+                                        # =>    This Inner Loop Header: Depth=3
+	cmpl	$4, -16(%rbp)
+	jge	.LBB1_12
+# %bb.6:                                #   in Loop: Header=BB1_5 Depth=3
+	movq	-8(%rbp), %rax
+	movslq	-12(%rbp), %rcx
+	shlq	$4, %rcx
+	addq	%rcx, %rax
+	movslq	-16(%rbp), %rcx
+	movl	(%rax,%rcx,4), %eax
+	movq	-8(%rbp), %rcx
+	movslq	-12(%rbp), %rdx
+	shlq	$4, %rdx
+	addq	%rdx, %rcx
+	movslq	-20(%rbp), %rdx
+	movl	(%rcx,%rdx,4), %ecx
+	movq	-8(%rbp), %rdx
+	movslq	-20(%rbp), %rsi
+	shlq	$4, %rsi
+	addq	%rsi, %rdx
+	movslq	-16(%rbp), %rsi
+	addl	(%rdx,%rsi,4), %ecx
+	cmpl	%ecx, %eax
+	jle	.LBB1_10
+# %bb.7:                                #   in Loop: Header=BB1_5 Depth=3
+	movq	-8(%rbp), %rax
+	movslq	-20(%rbp), %rcx
+	shlq	$4, %rcx
+	addq	%rcx, %rax
+	movslq	-16(%rbp), %rcx
+	cmpl	$99999, (%rax,%rcx,4)           # imm = 0x1869F
+	je	.LBB1_10
+# %bb.8:                                #   in Loop: Header=BB1_5 Depth=3
+	movq	-8(%rbp), %rax
+	movslq	-12(%rbp), %rcx
+	shlq	$4, %rcx
+	addq	%rcx, %rax
+	movslq	-20(%rbp), %rcx
+	cmpl	$99999, (%rax,%rcx,4)           # imm = 0x1869F
+	je	.LBB1_10
+# %bb.9:                                #   in Loop: Header=BB1_5 Depth=3
+	movq	-8(%rbp), %rax
+	movslq	-12(%rbp), %rcx
+	shlq	$4, %rcx
+	addq	%rcx, %rax
+	movslq	-20(%rbp), %rcx
+	movl	(%rax,%rcx,4), %edx
+	movq	-8(%rbp), %rax
+	movslq	-20(%rbp), %rcx
+	shlq	$4, %rcx
+	addq	%rcx, %rax
+	movslq	-16(%rbp), %rcx
+	addl	(%rax,%rcx,4), %edx
+	movq	-8(%rbp), %rax
+	movslq	-12(%rbp), %rcx
+	shlq	$4, %rcx
+	addq	%rcx, %rax
+	movslq	-16(%rbp), %rcx
+	movl	%edx, (%rax,%rcx,4)
+.LBB1_10:                               #   in Loop: Header=BB1_5 Depth=3
+	jmp	.LBB1_11
+.LBB1_11:                               #   in Loop: Header=BB1_5 Depth=3
+	movl	-16(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -16(%rbp)
+	jmp	.LBB1_5
+.LBB1_12:                               #   in Loop: Header=BB1_3 Depth=2
+	jmp	.LBB1_13
+.LBB1_13:                               #   in Loop: Header=BB1_3 Depth=2
+	movl	-12(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -12(%rbp)
+	jmp	.LBB1_3
+.LBB1_14:                               #   in Loop: Header=BB1_1 Depth=1
+	jmp	.LBB1_15
+.LBB1_15:                               #   in Loop: Header=BB1_1 Depth=1
+	movl	-20(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -20(%rbp)
+	jmp	.LBB1_1
+.LBB1_16:
+	movq	-8(%rbp), %rdi
+	callq	_Z13printSolutionPA4_i
+	addq	$32, %rsp
+	popq	%rbp
+	.cfi_def_cfa %rsp, 8
+	retq
+.Lfunc_end1:
+	.size	_Z13floydWarshallPA4_i, .Lfunc_end1-_Z13floydWarshallPA4_i
+	.cfi_endproc
+                                        # -- End function
+	.globl	_Z13printSolutionPA4_i          # -- Begin function _Z13printSolutionPA4_i
+	.p2align	4, 0x90
+	.type	_Z13printSolutionPA4_i,@function
+_Z13printSolutionPA4_i:                 # @_Z13printSolutionPA4_i
+	.cfi_startproc
+# %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	subq	$16, %rsp
+	movq	%rdi, -8(%rbp)
+	movq	_ZSt4cout@GOTPCREL(%rip), %rdi
+	leaq	.L.str(%rip), %rsi
+	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@PLT
+	movl	$0, -12(%rbp)
+.LBB2_1:                                # =>This Loop Header: Depth=1
+                                        #     Child Loop BB2_3 Depth 2
+	cmpl	$4, -12(%rbp)
+	jge	.LBB2_11
+# %bb.2:                                #   in Loop: Header=BB2_1 Depth=1
+	movl	$0, -16(%rbp)
+.LBB2_3:                                #   Parent Loop BB2_1 Depth=1
+                                        # =>  This Inner Loop Header: Depth=2
+	cmpl	$4, -16(%rbp)
+	jge	.LBB2_9
+# %bb.4:                                #   in Loop: Header=BB2_3 Depth=2
+	movq	-8(%rbp), %rax
+	movslq	-12(%rbp), %rcx
+	shlq	$4, %rcx
+	addq	%rcx, %rax
+	movslq	-16(%rbp), %rcx
+	cmpl	$99999, (%rax,%rcx,4)           # imm = 0x1869F
+	jne	.LBB2_6
+# %bb.5:                                #   in Loop: Header=BB2_3 Depth=2
+	movq	_ZSt4cout@GOTPCREL(%rip), %rdi
+	leaq	.L.str.1(%rip), %rsi
+	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@PLT
+	movq	%rax, %rdi
+	leaq	.L.str.2(%rip), %rsi
+	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@PLT
+	jmp	.LBB2_7
+.LBB2_6:                                #   in Loop: Header=BB2_3 Depth=2
+	movq	-8(%rbp), %rax
+	movslq	-12(%rbp), %rcx
+	shlq	$4, %rcx
+	addq	%rcx, %rax
+	movslq	-16(%rbp), %rcx
+	movl	(%rax,%rcx,4), %esi
+	movq	_ZSt4cout@GOTPCREL(%rip), %rdi
+	callq	_ZNSolsEi@PLT
+	movq	%rax, %rdi
+	leaq	.L.str.2(%rip), %rsi
+	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@PLT
+.LBB2_7:                                #   in Loop: Header=BB2_3 Depth=2
+	jmp	.LBB2_8
+.LBB2_8:                                #   in Loop: Header=BB2_3 Depth=2
+	movl	-16(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -16(%rbp)
+	jmp	.LBB2_3
+.LBB2_9:                                #   in Loop: Header=BB2_1 Depth=1
+	movq	_ZSt4cout@GOTPCREL(%rip), %rdi
+	movq	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@GOTPCREL(%rip), %rsi
+	callq	_ZNSolsEPFRSoS_E@PLT
+# %bb.10:                               #   in Loop: Header=BB2_1 Depth=1
+	movl	-12(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -12(%rbp)
+	jmp	.LBB2_1
+.LBB2_11:
+	addq	$16, %rsp
+	popq	%rbp
+	.cfi_def_cfa %rsp, 8
+	retq
+.Lfunc_end2:
+	.size	_Z13printSolutionPA4_i, .Lfunc_end2-_Z13printSolutionPA4_i
+	.cfi_endproc
+                                        # -- End function
+	.globl	main                            # -- Begin function main
+	.p2align	4, 0x90
+	.type	main,@function
+main:                                   # @main
+	.cfi_startproc
+# %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	subq	$80, %rsp
+	movl	$0, -4(%rbp)
+	leaq	-80(%rbp), %rdi
+	leaq	.L__const.main.graph(%rip), %rsi
+	movl	$64, %edx
+	callq	memcpy@PLT
+	leaq	-80(%rbp), %rdi
+	callq	_Z13floydWarshallPA4_i
+	xorl	%eax, %eax
+	addq	$80, %rsp
+	popq	%rbp
+	.cfi_def_cfa %rsp, 8
+	retq
+.Lfunc_end3:
+	.size	main, .Lfunc_end3-main
+	.cfi_endproc
+                                        # -- End function
+	.section	.text.startup,"ax",@progbits
+	.p2align	4, 0x90                         # -- Begin function _GLOBAL__sub_I_floyd_warshall.cpp
+	.type	_GLOBAL__sub_I_floyd_warshall.cpp,@function
+_GLOBAL__sub_I_floyd_warshall.cpp:      # @_GLOBAL__sub_I_floyd_warshall.cpp
+	.cfi_startproc
+# %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	callq	__cxx_global_var_init
+	popq	%rbp
+	.cfi_def_cfa %rsp, 8
+	retq
+.Lfunc_end4:
+	.size	_GLOBAL__sub_I_floyd_warshall.cpp, .Lfunc_end4-_GLOBAL__sub_I_floyd_warshall.cpp
+	.cfi_endproc
+                                        # -- End function
+	.type	_ZStL8__ioinit,@object          # @_ZStL8__ioinit
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.hidden	__dso_handle
+	.type	.L.str,@object                  # @.str
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.L.str:
+	.asciz	"The following matrix shows the shortest distances between every pair of vertices\n"
+	.size	.L.str, 82
+
+	.type	.L.str.1,@object                # @.str.1
+.L.str.1:
+	.asciz	"INF"
+	.size	.L.str.1, 4
+
+	.type	.L.str.2,@object                # @.str.2
+.L.str.2:
+	.asciz	" "
+	.size	.L.str.2, 2
+
+	.type	.L__const.main.graph,@object    # @__const.main.graph
+	.section	.rodata,"a",@progbits
+	.p2align	4, 0x0
+.L__const.main.graph:
+	.long	0                               # 0x0
+	.long	5                               # 0x5
+	.long	99999                           # 0x1869f
+	.long	10                              # 0xa
+	.long	99999                           # 0x1869f
+	.long	0                               # 0x0
+	.long	3                               # 0x3
+	.long	99999                           # 0x1869f
+	.long	99999                           # 0x1869f
+	.long	99999                           # 0x1869f
+	.long	0                               # 0x0
+	.long	1                               # 0x1
+	.long	99999                           # 0x1869f
+	.long	99999                           # 0x1869f
+	.long	99999                           # 0x1869f
+	.long	0                               # 0x0
+	.size	.L__const.main.graph, 64
+
+	.section	.init_array,"aw",@init_array
+	.p2align	3, 0x90
+	.quad	_GLOBAL__sub_I_floyd_warshall.cpp
+	.ident	"clang version 17.0.6 (https://github.com/llvm/llvm-project.git 6009708b4367171ccdbf4b5905cb6a803753fe18)"
+	.section	".note.GNU-stack","",@progbits
+	.addrsig
+	.addrsig_sym __cxx_global_var_init
+	.addrsig_sym __cxa_atexit
+	.addrsig_sym _Z13floydWarshallPA4_i
+	.addrsig_sym _Z13printSolutionPA4_i
+	.addrsig_sym _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	.addrsig_sym _ZNSolsEi
+	.addrsig_sym _ZNSolsEPFRSoS_E
+	.addrsig_sym _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+	.addrsig_sym _GLOBAL__sub_I_floyd_warshall.cpp
+	.addrsig_sym _ZStL8__ioinit
+	.addrsig_sym __dso_handle
+	.addrsig_sym _ZSt4cout
