@@ -1,4 +1,4 @@
-## Note: Instructions for running the `run.sh` file.
+### Note: Instructions for running the `run.sh` file.
 
 Step 1. Open your terminal
 
