@@ -2,11 +2,11 @@
 
 ### Overview
 
-The `arithmetic-intensity` pass provided here is designed to facilitate the calculation of arithmetic intensity. Arithmetic intensity, expressed as the FLOP per Byte ratio (F/B), quantifies the ratio of floating-point operations to the total number of bytes of memory accessed by the processor cores.
+The `arithmetic-intensity` pass provided here facilitates the calculation of arithmetic intensity. Arithmetic intensity, expressed as the FLOP per Byte ratio (F/B), quantifies the ratio of floating-point operations to the total number of bytes of memory accessed by the processor cores.
 
 ### Functionality
 
-This LLVM pass operates by analyzing each function by determining both the total number of arithmetic operations (A) and memory access operations (B) and perform computation of A/B for each function to compute `arithmetic-intensity`.
+This LLVM pass operates by analyzing each function by determining the total number of arithmetic operations (A) and memory access operations (B) and performing the computation of A/B for each function to compute arithmetic intensity.
 
 In cases where functions contain loops (e.g., while, for, do-while), the pass also identifies the presence and characteristics of these loops. This identification process follows a structured approach outlined below.
 
