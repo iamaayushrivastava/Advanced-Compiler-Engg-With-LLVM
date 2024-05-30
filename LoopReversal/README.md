@@ -4,7 +4,7 @@
 
 This project implements a transformation pass in LLVM (version 17.0.6) to reverse a loop in LLVM-IR without changing its semantics. The pass changes the usage of the induction variable accordingly to preserve correctness. For example, a loop iterating from `x` to `y` will be transformed to iterate from `y` to `x`.
 
-## Implementation Details
+## Implementation
 
 The implementation involves the following steps:
 
